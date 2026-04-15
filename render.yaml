@@ -1,15 +1,11 @@
 services:
-  - type: worker
-    name: Qadeer XD
+  - type: web
+    name: Godstrike-Bot
     env: node
     region: frankfurt
     plan: free
-    buildCommand: "npm install"
-    startCommand: "node index.js"
+    buildCommand: npm install
+    startCommand: node index.js
     envVars:
-      - key: SESSION_ID
-        value: ""
-        required: true
       - key: PORT
-        value: "3000"
-        required: false
+        value: 3000

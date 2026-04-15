@@ -1,14 +1,17 @@
+require("dotenv").config();
 const express = require("express");
-const app = express();
+const startBot = require("./bot"); // 👈 IMPORTANT
 
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Health check route (Render needs this vibe)
+// start WhatsApp bot FIRST
+startBot();
+
 app.get("/", (req, res) => {
   res.status(200).send("Godstrike Bot is alive 🚀");
 });
 
-// Simple status endpoint (debug tool)
 app.get("/status", (req, res) => {
   res.json({
     status: "running",
